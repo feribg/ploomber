@@ -1262,6 +1262,7 @@ even if not defined in the ``env.yaml`` (or if you don't have a ``env.yaml`` alt
 * ``{{git_hash}}``: git tag (if any) or git hash (*Added in Ploomber 0.17.1*)
 * ``{{git}}``: returns the branch name (if at the tip of it), git tag (if any), or git hash (*Added in Ploomber 0.17.1*)
 * ``{{env.ANY_ENV_VAR}}`` environment variable present on the instance running the pipeline can be referenced using this syntax (*Added in Ploomber 0.21.7*)
+* ``{{build_time}}`` Current timestamp as of the export job runtime in ISO 8601 format (*Added in Ploomber 0.21.7*)
 
 When packaging a soopervisor docker image and no `env.yaml` file is defined a default one will be generated
 including some default placeholders such as `{{git}}`, `{{git_hash}}`. The reason being is that the package being copied to the

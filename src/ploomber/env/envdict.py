@@ -1,3 +1,4 @@
+import datetime
 from copy import copy, deepcopy
 import importlib
 from pathlib import Path
@@ -182,6 +183,7 @@ class EnvDict(Mapping):
             'user': '{{user}}',
             'cwd': '{{cwd}}',
             'now': '{{now}}',
+            'build_time': '{{build_time}}'
         }
 
         if default.try_to_find_root_recursively(path_to_here) is not None:
@@ -193,6 +195,8 @@ class EnvDict(Mapping):
         if path_to_here is not None and repo.is_repo(path_to_here):
             placeholders['git'] = '{{git}}'
             placeholders['git_hash'] = '{{git_hash}}'
+
+        placeholders['build_time'] = datetime.datetime.now().isoformat()
 
         return placeholders
 
